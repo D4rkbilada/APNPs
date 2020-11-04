@@ -1,31 +1,26 @@
 const express = require('express')
 const app = express()
+var bodyparser = require('body-parser')
+var cookieparser = require('cookie-parser')
+var path = require('path')
+
+
+app.use(cookieparser())
+
+app.use(bodyparser.json())
+
+app.use(bodyparser.urlencoded({extended:false}))
+
+
+app.set("view engine", "ejs")
+
+app.use(express.static(path.join(__dirname,"public")))
 
 app.get('/',function(req,res){
     
     res.send("Olá Miguel Arenhart!")
     
 })
-
-app.get('/msg',function(req,res){
-res.send("essa mensagem é automática")
-
-
-
-
-})
-
-app.get('/sobre',function(req,res){
-    res.send("Esta página está sendo desenvolvida por Miguel")
-
-})
-    app.get('/layout',function(req,res){
-    res.send("esse é o novo Layout")
-    
-    
-    
-    
-    })
 
 app.listen(3000,function(){
     
