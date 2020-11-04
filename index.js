@@ -7,6 +7,14 @@ app.get('/',function(req,res){
     
 })
 
+app.get('/mensagem',function(req,res){
+res.send("essa mensagem é automática")
+
+
+
+
+})
+
 app.listen(3000,function(){
     
     console.log("Conexão inicializada")
