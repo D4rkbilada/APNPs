@@ -18,7 +18,20 @@ app.use(express.static(path.join(__dirname,"public")))
 
 app.get('/',function(req,res){
     
-    res.send("Olá Miguel Arenhart!")
+    res.render('index.ejs',{})
+    
+})
+
+app.get('/usuarios',function(req,res){
+    
+    res.render('usuarios.ejs',{usuarios:[
+
+        {nome:'Miguel', email:'arenhartmiguel@gmail.com'},
+        {nome:'Maria', email:'maria@hotmail.com'},
+        {nome:'Tereza', email:'tereza@hotmail.com'},
+        {nome:'Ana', email:'ana@hotmail.com'}
+
+    ]})
     
 })
 
