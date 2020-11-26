@@ -1,30 +1,13 @@
-<!DOCTYPE html>
-<html lang="eng">
+<%-include('cabecalho.ejs')%>
 
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Usuários</title>
+<form method="POST">
 
-<style>
-    table,td,th {
-        border: 1px solid black; 
-    }
-th{
-    font-weight: bolder;
-}
-
- td,th{
-     padding: 5px;
- }
-
-</style>
-
-
-</head>
-<body>
-
-<h1>Lista de Usuários</h1>
+    Pesquisar: <input type="text"  name="txtPesquisa" placeholder="Pesquisar">
+    <input type="submit" value="Pesquisar" >
+ 
+ 
+     </form>
+     <br>
 
 <table>
 
@@ -55,6 +38,7 @@ th{
 
 </table>
 
+<%-include('rodape.ejs')%>
 
 
 
@@ -79,6 +63,3 @@ th{
 
 
 
-
-</body>
-</html>
