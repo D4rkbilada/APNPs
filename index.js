@@ -4,7 +4,7 @@ var bodyparser = require('body-parser')
 var cookieparser = require('cookie-parser')
 var path = require('path')
 var Usuario = require('./model/usuario')
-
+var upload = require('./config/configMulter')
 
 app.use(cookieparser())
 
@@ -44,12 +44,12 @@ res.render('adiciona.ejs')
 
 })
 
-app.post('/add', function(req,res){
+app.post('/add',upload.single("txtFoto"), function(req,res){
      var usuario = new Usuario({
          nome: req.body.txtNome,
          email: req.body.txtEmail,
          senha: req.body.txtSenha,
-         foto: req.body.txtFoto
+         foto: req.file.filename
 
      })
 
@@ -97,13 +97,13 @@ console.log(err)
 
 })
 
-app.post('/edit/:id', function(req,res){
+app.post('/edit/:id',upload.single("txtFoto"), function(req,res){
    
     Usuario.findByIdAndUpdate(req.params.id,{
          nome: req.body.txtNome,
              email: req.body.txtEmail,
               senha: req.body.txtSenha,
-               foto:req.body.txtFoto
+               foto:req.file.filename
 
 
          },function(err,docs){
